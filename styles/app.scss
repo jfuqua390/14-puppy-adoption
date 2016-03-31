@@ -4,6 +4,10 @@
 $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
 @import 'font-awesome';
 @import 'box-sizing';
+@import 'variables';
+@import 'topnav';
+@import 'topnav-form';
+@import 'puppy-card';
 
 ul {
   margin: 0;
@@ -13,6 +17,12 @@ ul {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+}
+
+body {
+  margin: 0;
+  overflow: auto;
+  font-family: sans-serif;
 }
 
 .puppy-card {

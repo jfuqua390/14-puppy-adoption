@@ -1,0 +1,41 @@
+.top-nav-form {
+  background-color: $brand-gray;
+  color: $brand-white;
+
+  &__container {
+    width: 80%;
+    margin: auto;
+  }
+
+  &__heading {
+    padding-top: 0.6rem;
+  }
+  &__inputs {
+    padding: 0.6rem 0;
+  }
+
+  &__inputs-item {
+    margin: .6rem 0;
+  }
+
+  &__save-button {
+    background-color: $brand-orange;
+    color: $brand-white;
+    border: 0;
+    border-radius: 5px;
+    margin: 0 0 0.6rem;
+  }
+}
+
+.inputs-item__input {
+  background-color: $brand-gray;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  width: 100%;
+  border-bottom: 1px solid $brand-black;
+
+  &:last-child {
+    margin: 0.6rem 0 0;
+  }
+}

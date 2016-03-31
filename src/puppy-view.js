@@ -13,19 +13,19 @@ export default class PuppyView {
       <ul class="puppy-card__form-inputs">
         <li class="puppy-card__form-inputs-item">
           <h6 class="inputs-item__label">Name</h6>
-          <input type="text" class="inputs-item__input" value="${name}">
+          <input type="text" class="puppy-card__inputs-item__input" value="${name}">
         </li>
         <li class="puppy-card__form-inputs-item">
           <h6 class="inputs-item__label">Age</h6>
-          <input type="text" class="inputs-item__input" value="${age}">
+          <input type="text" class="puppy-card__inputs-item__input" value="${age}">
         </li>
         <li class="puppy-card__form-inputs-item">
           <h6 class="inputs-item__label">Photo URL</h6>
-          <input type="text" class="inputs-item__input" value="${photoUrl}">
+          <input type="text" class="puppy-card__inputs-item__input" value="${photoUrl}">
         </li>
         <li class="puppy-card__form-inputs-item">
           <h6 class="inputs-item__label">Profile</h6>
-          <input type="text" class="inputs-item__input" value="${profile}">
+          <input type="text" class="puppy-card__inputs-item__input" value="${profile}">
         </li>
       </ul>
     </div>`;
