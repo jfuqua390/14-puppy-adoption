@@ -8,4 +8,48 @@
   background-color: $brand-light-gray;
   border: 1px solid $brand-black;
   margin: 0.6rem;
+
+  &__image {
+    width: 30%;
+    margin: 1rem 0 1rem 1rem;
+  }
+
+  &__form {
+    width: 70%;
+  }
+
+  &__form-inputs-item{
+    margin: 0.7rem;
+  }
+  &__inputs-item__input {
+    background-color: transparent;
+    box-shadow: none;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid $brand-black;
+    width: 100%;
+  }
+}
+
+.puppy-card__pic {
+  width: 100%;
+}
+
+.button-row {
+  margin: 0.7rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.puppy-card__button {
+  background-color: $brand-orange;
+  color: $brand-white;
+  border: 0;
+  border-radius: 5px;
+  width: 5rem;
+  height: 2rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

@@ -6,13 +6,14 @@ export default class ApplicationView {
   fetch(`http://tiny-tn.herokuapp.com/collections/ryan-puppy`)
     .then(r => r.json())
     .then(data => {
-      console.log(data); //delete after working
-      data.forEach(puppy => {
-        console.log(puppy); //delete after complete
-        let x = new PuppyView(puppy._id, puppy.name, puppy.age, puppy.photoUrl, puppy.profile);
-        // console.log(x);
+      this.data = data;
+      this.renderapp();
       })
-    })
-  }
 
   }
+  renderapp() {
+    this.data.forEach(puppy => {
+      let x = new PuppyView(puppy._id, puppy.name, puppy.age, puppy.photoUrl, puppy.profile);
+    });
+  }
+}
