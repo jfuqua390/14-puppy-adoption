@@ -16,11 +16,10 @@ export default class ApplicationView {
         profile: this.formprofile,
       };
       // console.log(this.formname, this.formage, this.formphotoUrl, this.formprofile)
-      fetch(`http://tiny-tn.herokuapp.com/collections/jf-puppies`, { method : `PUT` ,
-      body: this.pupinfo })
+      fetch(`http://tiny-tn.herokuapp.com/collections/jf-puppies`, { method : `POST` })
       .then(r => r.json())
       .then((data) => {
-        Object.assign(data, this.pupinfo);
+        Object.assign(this.pupinfo, data);
       })
 
     })
