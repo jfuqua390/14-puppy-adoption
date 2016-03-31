@@ -6,12 +6,7 @@ export default class PuppyView {
     this.photoUrl = photoUrl;
     this.profile = profile;
     this.renderpup();
-    const updatebutton = this.newcard.querySelector(`.update-button`);
-    updatebutton.addEventListener(`click`, (e) => {
-      console.log(`clicked update`);
-      console.log(e);
-    });
-      }
+  }
   renderpup() {
     this.newcard = document.createElement('div');
     this.newcard.classList.add('puppy-card')

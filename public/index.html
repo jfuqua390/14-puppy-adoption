@@ -15,25 +15,17 @@
   <div class="top-nav-form">
     <div class="top-nav-form__container">
       <h1 class="top-nav-form__heading">Add a new puppy</h1>
-      <ul class="top-nav-form__inputs">
-        <li class="top-nav-form__inputs-item">
-          <h6 class="inputs-item__label">Name</h6>
-          <input type="text" class="inputs-item__input">
-        </li>
-        <li class="top-nav-form__inputs-item">
-          <h6 class="inputs-item__label">Age</h6>
-          <input type="text" class="inputs-item__input">
-        </li>
-        <li class="top-nav-form__inputs-item">
-          <h6 class="inputs-item__label">Photo URL</h6>
-          <input type="text" class="inputs-item__input">
-        </li>
-        <li class="top-nav-form__inputs-item">
-          <h6 class="inputs-item__label">Profile</h6>
-          <input type="text" class="inputs-item__input">
-        </li>
-      </ul>
-      <button class="top-nav-form__save-button">Save</button>
+      <form class="top-nav-form__inputs">
+        <label class="top-nav-form__inputs__label" for="POST-name">Name</label>
+        <input class="top-nav-form__inputs__input" id="POST-name" type="text">
+        <label class="top-nav-form__inputs__label" for="POST-age">Age</label>
+        <input class="top-nav-form__inputs__input" id="POST-age" type="text">
+        <label class="top-nav-form__inputs__label" for="POST-photoUrl">PhotoUrl</label>
+        <input class="top-nav-form__inputs__input" id="POST-photoUrl" type="text">
+        <label class="top-nav-form__inputs__label" for="POST-profile">Profile</label>
+        <input class="top-nav-form__inputs__input" id="POST-profile" type="text">
+        <button type="submit" class="top-nav-form__save-button" id="POST-submit">Save</button>
+    </form>
     </div>
   </div>
   <div class="main-content">

@@ -13,30 +13,34 @@
 
   &__inputs {
     padding: 0.6rem 0;
+    display: flex;
+    flex-direction: column;
   }
 
-  &__inputs-item {
+  &__inputs__label {
     margin: 0.6rem 0;
   }
 
+  &__inputs__input {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid $brand-black;
+    outline: 0;
+    background-color: $brand-gray;
+    box-shadow: none;
+  }
+
   &__save-button {
-    margin: 0 0 0.6rem;
+    margin: 1rem 0;
     border: 0;
     border-radius: 5px;
+    width: 5rem;
+    height: 2rem;
     background-color: $brand-orange;
     color: $brand-white;
-  }
-}
 
-.inputs-item__input {
-  width: 100%;
-  border: 0;
-  border-bottom: 1px solid $brand-black;
-  outline: 0;
-  background-color: $brand-gray;
-  box-shadow: none;
-
-  &:last-child {
-    margin: 0.6rem 0 0;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
