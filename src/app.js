@@ -9,11 +9,18 @@ export default class ApplicationView {
       this.formage = document.querySelector('#POST-age').value;
       this.formphotoUrl = document.querySelector('#POST-photoUrl').value;
       this.formprofile = document.querySelector('#POST-profile').value;
-      console.log(this.formname, this.formage, this.formphotoUrl, this.formprofile)
-      fetch(`http://tiny-tn.herokuapp.com/collections/jf-puppies`, { method : `POST`})
+      this.pupinfo = {
+        name: this.formname,
+        age: this.formage,
+        photoUrl: this.formphotoUrl,
+        profile: this.formprofile,
+      };
+      // console.log(this.formname, this.formage, this.formphotoUrl, this.formprofile)
+      fetch(`http://tiny-tn.herokuapp.com/collections/jf-puppies`, { method : `PUT` ,
+      body: this.pupinfo })
       .then(r => r.json())
       .then((data) => {
-        console.log(data)
+        Object.assign(data, this.pupinfo);
       })
 
     })
