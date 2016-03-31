@@ -2,16 +2,16 @@
   position: relative;
   top: 0;
   left: 0;
-  background-color: $brand-orange;
-  color: $brand-white;
   width: 100vw;
   border-top: 1px solid $brand-black;
+  background-color: $brand-orange;
+  color: $brand-white;
 
   &__container {
-    width: 80%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    width: 80%;
     margin: auto;
   }
 

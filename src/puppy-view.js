@@ -5,8 +5,12 @@ export default class PuppyView {
     this.age = age;
     this.photoUrl = photoUrl;
     this.profile = profile;
-
     this.renderpup();
+    const updatebutton = this.newcard.querySelector(`.update-button`);
+    updatebutton.addEventListener(`click`, (e) => {
+      console.log(`clicked update`);
+      console.log(e);
+    });
       }
   renderpup() {
     this.newcard = document.createElement('div');

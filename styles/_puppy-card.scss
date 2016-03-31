@@ -5,9 +5,9 @@
 
 .puppy-card {
   width: 100%;
-  background-color: $brand-light-gray;
-  border: 1px solid $brand-black;
   margin: 0.6rem;
+  border: 1px solid $brand-black;
+  background-color: $brand-light-gray;
 
   &__image {
     width: 30%;
@@ -18,16 +18,17 @@
     width: 70%;
   }
 
-  &__form-inputs-item{
+  &__form-inputs-item {
     margin: 0.7rem;
   }
+
   &__inputs-item__input {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid $brand-black;
+    outline: 0;
     background-color: transparent;
     box-shadow: none;
-    border: 0;
-    outline: 0;
-    border-bottom: 1px solid $brand-black;
-    width: 100%;
   }
 }
 
@@ -36,18 +37,18 @@
 }
 
 .button-row {
-  margin: 0.7rem;
   display: flex;
   justify-content: space-between;
+  margin: 0.7rem;
 }
 
 .puppy-card__button {
-  background-color: $brand-orange;
-  color: $brand-white;
-  border: 0;
-  border-radius: 5px;
   width: 5rem;
   height: 2rem;
+  border: 0;
+  border-radius: 5px;
+  background-color: $brand-orange;
+  color: $brand-white;
 
   &:hover {
     cursor: pointer;
