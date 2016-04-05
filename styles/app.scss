@@ -9,7 +9,8 @@ $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
 @import 'topnav-form';
 @import 'puppy-card';
 
-ul {
+ul,
+li {
   margin: 0;
   padding: 0;
   list-style: none;

@@ -1,42 +1,53 @@
 import PuppyView from 'puppy-view';
+import FormView from 'form-view';
 
 export default class ApplicationView {
   constructor() {
-    this.savebutton = document.querySelector('#POST-submit');
-    this.savebutton.addEventListener(`click`, (e) => {
-      e.preventDefault();
-      this.formname = document.querySelector('#POST-name').value;
-      this.formage = document.querySelector('#POST-age').value;
-      this.formphotoUrl = document.querySelector('#POST-photoUrl').value;
-      this.formprofile = document.querySelector('#POST-profile').value;
-      this.pupinfo = {
-        name: this.formname,
-        age: this.formage,
-        photoUrl: this.formphotoUrl,
-        profile: this.formprofile,
-      };
-      // console.log(this.formname, this.formage, this.formphotoUrl, this.formprofile)
-      fetch(`http://tiny-tn.herokuapp.com/collections/jf-puppies`, { method : `POST` })
-      .then(r => r.json())
-      .then((data) => {
-        Object.assign(this.pupinfo, data);
-      })
-
-    })
+    this.form = document.querySelector(`.top-nav-form__inputs`);
+    this.list = document.querySelector(`.row`);
+    this.url = `http://tiny-tn.herokuapp.com/collections/jf-puppies`;
     this.puppyinfo = [];
-    fetch(`http://tiny-tn.herokuapp.com/collections/jf-puppies`)
+
+    fetch(this.url)
     .then((r) => r.json())
     .then((data) => {
       this.data = data;
       this.renderapp();
     });
+
+    this.formview = new FormView(this.form, this);
+    this.renderapp();
   }
 
   renderapp() {
-    const puppylist = document.querySelector(`.row`);
-    puppylist.innerHTML = ``;
+    this.list.innerHTML = ``;
     this.data.forEach((puppy) => {
-      new PuppyView(puppy._id, puppy.name, puppy.age, puppy.photoUrl, puppy.profile);
+      const x = new PuppyView(puppy, this);
+
+      this.list.appendChild(x.el);
     });
+  }
+
+  add(puppy) {
+    fetch(this.url, {
+      method: `POST`,
+      headers: {
+        Accept: `application/JSON`,
+        'Content-type': `application/JSON`,
+      },
+      body: JSON.stringify(puppy),
+    })
+    .then((r) => r.json())
+    .then((result) => {
+      this.data = [result, ...this.data];
+      this.renderapp();
+    });
+  }
+
+  remove(puppy) {
+    this.data = this.data.filter((current) => {
+      return current !== puppy;
+    });
+    this.renderapp();
   }
 }

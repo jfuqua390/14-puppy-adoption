@@ -1,38 +1,39 @@
 
 export default class PuppyView {
-  constructor(id, name, age, photoUrl, profile) {
-    this.name = name;
-    this.age = age;
-    this.photoUrl = photoUrl;
-    this.profile = profile;
+  constructor(puppy, app) {
+    this.puppy = puppy;
+    this.app = app;
+
+    this.el = document.createElement(`li`);
+    this.el.classList.add(`puppy-card`);
+
+    this.createPupcard();
     this.renderpup();
+    this.deletepup();
   }
-  renderpup() {
-    this.newcard = document.createElement('div');
-    this.newcard.classList.add('puppy-card')
-    this.row = document.querySelector('.row');
-    this.row.appendChild(this.newcard);
-    this.newcard.innerHTML = `
+
+  createPupcard() {
+    this.el.innerHTML = `
     <div class="puppy-card__image">
-      <img src="${this.photoUrl}" alt="" class="puppy-card__pic"/>
+      <img src="" alt="" class="puppy-card__pic"/>
     </div>
     <div class="puppy-card__form">
       <ul class="puppy-card__form-inputs">
         <li class="puppy-card__form-inputs-item">
           <h6 class="inputs-item__label">Name</h6>
-          <input type="text" class="puppy-card__inputs-item__input" value="${this.name}">
+          <input type="text" class="puppy-card__inputs-item__input puppy-name" value="">
         </li>
         <li class="puppy-card__form-inputs-item">
           <h6 class="inputs-item__label">Age</h6>
-          <input type="text" class="puppy-card__inputs-item__input" value="${this.age}">
+          <input type="text" class="puppy-card__inputs-item__input puppy-age" value="">
         </li>
         <li class="puppy-card__form-inputs-item">
           <h6 class="inputs-item__label">Photo URL</h6>
-          <input type="text" class="puppy-card__inputs-item__input" value="${this.photoUrl}">
+          <input type="text" class="puppy-card__inputs-item__input puppy-photo" value="">
         </li>
         <li class="puppy-card__form-inputs-item">
           <h6 class="inputs-item__label">Profile</h6>
-          <input type="text" class="puppy-card__inputs-item__input" value="${this.profile}">
+          <input type="text" class="puppy-card__inputs-item__input puppy-profile" value="">
         </li>
       </ul>
       <div class ="button-row">
@@ -40,6 +41,23 @@ export default class PuppyView {
       <button class ="puppy-card__button update-button">Update</button>
       </div>
     </div>`;
-      }
+  }
 
+  renderpup() {
+    this.el.querySelector(`.puppy-card__pic`).src = this.puppy.photoUrl;
+    this.el.querySelector(`.puppy-name`).value = this.puppy.name;
+    this.el.querySelector(`.puppy-age`).value = this.puppy.age;
+    this.el.querySelector(`.puppy-photo`).value = this.puppy.photoUrl;
+    this.el.querySelector(`.puppy-profile`).value = this.puppy.profile;
+  }
+
+  deletepup() {
+    this.el.querySelector(`.delete-button`).addEventListener(`click`, () => {
+      fetch(`${this.app.url}/${this.puppy._id}`, {
+        method: `Delete`,
+      }).then(() => {
+        this.app.remove(this.puppy);
+      });
+    });
+  }
 }

@@ -4,6 +4,7 @@
 }
 
 .puppy-card {
+  display: flex;
   width: 100%;
   margin: 0.6rem;
   border: 1px solid $brand-black;
@@ -15,7 +16,7 @@
   }
 
   &__form {
-    width: 70%;
+    width: 60%;
   }
 
   &__form-inputs-item {
