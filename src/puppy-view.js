@@ -60,4 +60,22 @@ export default class PuppyView {
       });
     });
   }
+
+  updatepup() {
+    this.el.querySelector(`.update-button`).addEventListener(`click`, () => {
+      fetch(`${this.app.url}/${this.puppy._id}`, {
+        method: `PUT`,
+        headers: {
+          Accept: `application/JSON`,
+          'Content-type': `application/JSON`,
+        },
+        body: JSON.stringify(this.puppy)
+      })
+    .then((r) => r.json())
+    .then((updatedvalues) => {
+      Object.assign(this.puppy, updatedvalues);
+      this.renderpup();
+    });
+    });
+  }
 }
