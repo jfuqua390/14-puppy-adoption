@@ -70,7 +70,7 @@ export default class PuppyView {
         photoUrl: this.el.querySelector(`.puppy-photo`).value,
         profile: this.el.querySelector(`.puppy-profile`).value,
       };
-      console.log(values);
+
       fetch(`${this.app.url}/${this.puppy._id}`, {
         method: `PUT`,
         headers: {

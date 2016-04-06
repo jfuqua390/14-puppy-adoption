@@ -2,10 +2,7 @@
 
 export default class FormView {
   constructor(el, app) {
-    const formviewbutton = document.querySelector(`.fa-plus-circle`);
-    formviewbutton.addEventListener(`click`, () => {
-      this.renderForm();
-    });
+    this.formDropdown();
     this.el = el;
     this.app = app;
 
@@ -26,6 +23,21 @@ export default class FormView {
       this.el.querySelector(`#POST-profile`).value = ``;
     });
   }
+
+  formDropdown() {
+    const formviewbutton = document.querySelector(`.fa-plus-circle`);
+    this.dropstatus = true;
+    formviewbutton.addEventListener(`click`, () => {
+      if(this.dropstatus) {
+        this.renderForm();
+        this.dropstatus = false;
+      } else {
+        this.unrenderForm();
+        this.dropstatus = true;
+      }
+    });
+  }
+
   renderForm() {
     const topnavform = document.querySelector(`.top-nav-form`);
     topnavform.innerHTML = `
@@ -42,5 +54,10 @@ export default class FormView {
         <input class="top-nav-form__inputs__input" id="POST-profile" type="text" name="profile">
         <input type="submit" class="top-nav-form__save-button" id="POST-submit"></button>
     </form>`;
+  }
+
+  unrenderForm() {
+    const topnavform = document.querySelector(`.top-nav-form`);
+    topnavform.innerHTML = ``;
   }
 }
