@@ -10,6 +10,7 @@ export default class PuppyView {
     this.createPupcard();
     this.renderpup();
     this.deletepup();
+    this.updatepup();
   }
 
   createPupcard() {
@@ -63,17 +64,24 @@ export default class PuppyView {
 
   updatepup() {
     this.el.querySelector(`.update-button`).addEventListener(`click`, () => {
+      const values = {
+        name: this.el.querySelector(`.puppy-name`).value,
+        age: this.el.querySelector(`.puppy-age`).value,
+        photoUrl: this.el.querySelector(`.puppy-photo`).value,
+        profile: this.el.querySelector(`.puppy-profile`).value,
+      };
+      console.log(values);
       fetch(`${this.app.url}/${this.puppy._id}`, {
         method: `PUT`,
         headers: {
           Accept: `application/JSON`,
           'Content-type': `application/JSON`,
         },
-        body: JSON.stringify(this.puppy)
+        body: JSON.stringify(values)
       })
     .then((r) => r.json())
-    .then((updatedvalues) => {
-      Object.assign(this.puppy, updatedvalues);
+    .then((data) => {
+      Object.assign(data, values);
       this.renderpup();
     });
     });
